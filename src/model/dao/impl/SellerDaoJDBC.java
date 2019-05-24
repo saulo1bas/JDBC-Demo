@@ -51,9 +51,11 @@ public class SellerDaoJDBC implements SellerDAO {
 			} else {
 				throw new DbException("Unexpected Error!");
 			}
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		} finally {
+		} 
+		finally {
 			DB.closeStatement(st);
 		}
 	}
@@ -78,9 +80,11 @@ public class SellerDaoJDBC implements SellerDAO {
 			st.executeUpdate();
 
 			
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		} finally {
+		} 
+		finally {
 			DB.closeStatement(st);
 		}
 
@@ -94,7 +98,10 @@ public class SellerDaoJDBC implements SellerDAO {
 			st = conn.prepareStatement("DELETE FROM seller\r\n" + 
 					"WHERE Id = ?");
 			st.setInt(1, id);
-			st.executeUpdate();
+			int rows = st.executeUpdate();
+			if(rows == 0) {
+				throw new DbException("The user related to this Id was not found");
+			}
 			
 		}
 		catch(SQLException e) {
@@ -123,9 +130,11 @@ public class SellerDaoJDBC implements SellerDAO {
 				return seller;
 			}
 			return null;
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		} finally {
+		} 
+		finally {
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
