@@ -1,6 +1,7 @@
 package application;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DAOFactory;
@@ -16,10 +17,12 @@ public class Program {
 		
 		//Seller sel = sellerDao.findById(3);
 		
-		//Department dep = new Department(2, null);
+		Department dep = new Department(2, null);
 		List<Seller> list = sellerDao.findAll();
 		
-		System.out.println(Arrays.toString(list.toArray()) + "\n");
+		Seller newSeller = new Seller(null,"Greg","greg@gmail.com",new Date(),4000.00,dep);
+		sellerDao.insert(newSeller);
+		System.out.println(newSeller.getId());
 	}
 	
 }
