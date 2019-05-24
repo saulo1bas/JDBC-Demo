@@ -1,15 +1,13 @@
 package application;
 
-import java.sql.Connection;
-
-import db.DB;
+import model.entities.Department;
 
 public class Program {
 	
 	
 	public static void main(String[] args) {
-		Connection conn = DB.getConnection();
-		DB.closeConnection();
+		Department dep = new Department(1, "RH");
+		System.out.println(dep.toString());
 	}
 	
 }
