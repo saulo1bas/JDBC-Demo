@@ -16,10 +16,10 @@ public class Program {
 		
 		//Seller sel = sellerDao.findById(3);
 		
-		Department dep = new Department(2, null);
-		List<Seller> list = sellerDao.findByDepartment(dep);
+		//Department dep = new Department(2, null);
+		List<Seller> list = sellerDao.findAll();
 		
-		System.out.println(Arrays.toString(list.toArray()));
+		System.out.println(Arrays.toString(list.toArray()) + "\n");
 	}
 	
 }
