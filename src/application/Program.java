@@ -17,12 +17,12 @@ public class Program {
 		
 		//Seller sel = sellerDao.findById(3);
 		
-		Department dep = new Department(2, null);
-		List<Seller> list = sellerDao.findAll();
-		Seller seller = sellerDao.findById(1);
+		//Department dep = new Department(2, null);
+		//List<Seller> list = sellerDao.findAll();
+		//Seller seller = sellerDao.findById(1);
 		//Seller newSeller = new Seller(null,"Greg","greg@gmail.com",new Date(),4000.00,dep);
-		seller.setName("Marta Waine");
-		sellerDao.update(seller);
+		
+		sellerDao.deleteById(1);
 		System.out.println("Sucesso!");
 	}
 	
