@@ -19,10 +19,11 @@ public class Program {
 		
 		Department dep = new Department(2, null);
 		List<Seller> list = sellerDao.findAll();
-		
-		Seller newSeller = new Seller(null,"Greg","greg@gmail.com",new Date(),4000.00,dep);
-		sellerDao.insert(newSeller);
-		System.out.println(newSeller.getId());
+		Seller seller = sellerDao.findById(1);
+		//Seller newSeller = new Seller(null,"Greg","greg@gmail.com",new Date(),4000.00,dep);
+		seller.setName("Marta Waine");
+		sellerDao.update(seller);
+		System.out.println("Sucesso!");
 	}
 	
 }
